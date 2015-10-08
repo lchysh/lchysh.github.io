@@ -140,6 +140,90 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/08/webview/">
+                webview 页面开发部分准则
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-10-08
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>&gt;</p>
+<blockquote>
+<p>目标</p>
+<blockquote>
+<p>1.产品体验 </p>
+<blockquote>
+<p> 快速渲染、稳定，页面不闪、兼容、滑动不卡顿<br>2.工程化<br>代码结构复用，经验沉淀，更具生产性 </p>
+</blockquote>
+</blockquote>
+<p>根据工程目标,会持续更新</p>
+<p>工程依据</p>
+<blockquote>
+<p> 1.网络请求：</p>
+<blockquote>
+<p>浏览器同时请求数目受限<br>经典案例：图片加载阻塞业务js的加载<br>2.网络图片<br>图片若不事先确定大小，加载后自适应改变页面布局，引起repaint和reflow，非常消耗性能<br>传输过程中，没有有效的手段压缩图片<br>经典案例：加载一个普通图片比js、css都大</p>
+</blockquote>
+</blockquote>
+<p>相应的解决方案</p>
+<blockquote>
+<p>工程需要协作<br>1.后台</p>
+<blockquote>
+<p>1.开启gzip压缩（通常会压缩掉2/3），压缩传输文本资源<br>2.考虑反向代理等手段，为静态资源分配不同域名（常见的是二级域名）<br>2.UI<br>参考了qq的兴趣部落等.<br>1.从布局考虑，不采用图片作为页面结构（骨架）支撑组件，尽量不用图片做功能组件（按钮）<br>2.图片尺寸固定，lazyload图片，使用占位<br>3.尽量使用css代替图片<br>3.app<br>非业务类资源由native取,业务类资源不由native取<br>4.页面开发者<br>部分资源考虑 公共cdn<br>尽量不使用第三方framework，使用library<br>优先加载css<br>考虑各种离线缓存方案 本地存储、应用缓存等。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>&gt;<br>&gt;</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/06/20/hello-world/">
                 Hello World
               </a>
@@ -230,7 +314,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -244,7 +328,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

@@ -20,7 +20,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="html5,webview," />
 
 
 
@@ -43,7 +43,7 @@
 
 
 
-  <title> Hello World // 豆角君 </title>
+  <title> webview 页面开发部分准则 // 豆角君 </title>
 </head>
 
 <body>
@@ -138,7 +138,7 @@
           
           
             
-              Hello World
+              webview 页面开发部分准则
             
           
         </h1>
@@ -146,7 +146,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-06-20
+          发表于 2015-10-08
         </span>
 
         
@@ -163,31 +163,56 @@
       
 
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>&gt;</p>
+<blockquote>
+<p>目标</p>
+<blockquote>
+<p>1.产品体验 </p>
+<blockquote>
+<p> 快速渲染、稳定，页面不闪、兼容、滑动不卡顿<br>2.工程化<br>代码结构复用，经验沉淀，更具生产性 </p>
+</blockquote>
+</blockquote>
+<p>根据工程目标,会持续更新</p>
+<p>工程依据</p>
+<blockquote>
+<p> 1.网络请求：</p>
+<blockquote>
+<p>浏览器同时请求数目受限<br>经典案例：图片加载阻塞业务js的加载<br>2.网络图片<br>图片若不事先确定大小，加载后自适应改变页面布局，引起repaint和reflow，非常消耗性能<br>传输过程中，没有有效的手段压缩图片<br>经典案例：加载一个普通图片比js、css都大</p>
+</blockquote>
+</blockquote>
+<p>相应的解决方案</p>
+<blockquote>
+<p>工程需要协作<br>1.后台</p>
+<blockquote>
+<p>1.开启gzip压缩（通常会压缩掉2/3），压缩传输文本资源<br>2.考虑反向代理等手段，为静态资源分配不同域名（常见的是二级域名）<br>2.UI<br>参考了qq的兴趣部落等.<br>1.从布局考虑，不采用图片作为页面结构（骨架）支撑组件，尽量不用图片做功能组件（按钮）<br>2.图片尺寸固定，lazyload图片，使用占位<br>3.尽量使用css代替图片<br>3.app<br>非业务类资源由native取,业务类资源不由native取<br>4.页面开发者<br>部分资源考虑 公共cdn<br>尽量不使用第三方framework，使用library<br>优先加载css<br>考虑各种离线缓存方案 本地存储、应用缓存等。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>&gt;<br>&gt;</p>
 
       
     </div>
 
     <div class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/html5/"> #html5 </a>
+          
+            <a href="/tags/webview/"> #webview </a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/08/webview/">webview 页面开发部分准则</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/20/hello-world/">Hello World</a>
             
           </div>
         </div>
@@ -287,7 +312,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
